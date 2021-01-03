@@ -11,17 +11,19 @@ import createPersistedState from "vuex-persistedstate";
 
 const authState = createPersistedState({
   paths: ['auth'],
-  rehydrated: function ({ state }) {
-    axios.defaults.headers.common['Authorization'] = state.auth.token
+  rehydrated: function (store) {
+    axios.defaults.headers.common['Authorization'] = store.state.auth.token
   }
 })
 
 export default new Vuex.Store({
   state: {
+    socket: null,
   },
   mutations: {
   },
   actions: {
+    
   },
   modules: {
     auth,

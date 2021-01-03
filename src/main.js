@@ -4,29 +4,30 @@ import './registerServiceWorker'
 import router from './router'
 import store from './store'
 
-const firebase = require('firebase').default
 /* firebase */
+import firebase from "firebase"
 var firebaseConfig = require('./services/firebaseConfig.json')
 firebase.initializeApp(firebaseConfig)
 
-Vue.config.productionTip = false
-
+/* Bootstrap */
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
-
-// Import Bootstrap an BootstrapVue CSS files (order is important)
+Vue.use(BootstrapVue)
+Vue.use(IconsPlugin)
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+
+/* Custom styles */
+import "./assets/style.scss"
 
 /* Axios */
 const axios = require("axios").default
 axios.defaults.baseURL = (process.env.NODE_ENV == "production" ? "https://richat.herokuapp.com/" : "http://localhost:3000/" )
 
-// Make BootstrapVue available throughout your project
-Vue.use(BootstrapVue)
-// Optionally install the BootstrapVue icon components plugin
-Vue.use(IconsPlugin)
+/* Toasts */
+import Toasted from 'vue-toasted';
+Vue.use(Toasted)
 
-import "./assets/style.scss"
+Vue.config.productionTip = false
 
 new Vue({
   router,
