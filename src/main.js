@@ -19,7 +19,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 /* Axios */
 const axios = require("axios").default
-axios.defaults.baseURL = (process.env.NODE_ENV == "production" ? "https://ws-chat-api.herokuapp.com/" : "http://localhost:3000/" )
+axios.defaults.baseURL = (process.env.NODE_ENV == "production" ? "https://richat.herokuapp.com/" : "http://localhost:3000/" )
 
 // Make BootstrapVue available throughout your project
 Vue.use(BootstrapVue)
